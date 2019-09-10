@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso JavaScript</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name ="nome" />
+        <button class="botao">Adicionar</button>
+    </div>
+
+    <script>
+        var btnElement = document.querySelector('button.botao');
+        // var inputElement = document.getElementById('nome');
+        // var inputElement = document.getElementsByTagName('input')[0];
+        // var inputElement = document.getElementsByClassName('nome')[0];
+        var inputElement = document.querySelector('input[name=nome]'); //Usar como CSS, atributos da tag em colchetes.
+
+        btnElement.onclick = function() {
+            alert(inputElement.value);
+        }
+    </script>
+</body>
+</html>

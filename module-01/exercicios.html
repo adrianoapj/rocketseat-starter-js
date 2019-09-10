@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Exercício JavaScript</title>
+  </head>
+  <body>
+    <script>
+      function getAddress(endereco) {
+        return (
+          "O usuário mora em " +
+          endereco.cidade +
+          " / " +
+          endereco.uf +
+          ", no bairro " +
+          endereco.bairro +
+          ', na rua "' +
+          endereco.rua +
+          '" com n˚ ' +
+          endereco.numero +
+          "."
+        );
+      }
+      var endereco = {
+        rua: "Rua dos pinheiros",
+        numero: 1293,
+        bairro: "Centro",
+        cidade: "São Paulo",
+        uf: "SP"
+      };
+
+      function pares(x, y) {
+        for (var i = x; i <= y; i++) {
+          if (i % 2 == 0) console.log(i);
+        }
+      }
+
+      function temHabilidade(skills) {
+        return skills.indexOf("Javascript") != -1;
+      }
+
+      function experiencia(anos) {
+        if (anos >= 0 && anos < 2) return "Iniciante";
+        else if (anos > 0 && anos < 4) return "Intermediário";
+        else if (anos > 2 && anos < 7) return "Avançado";
+        else if (anos > 6) return "Jedi Master";
+        return "Indefinido";
+      }
+
+      function listarHabilidades(usuarios) {
+        for (var usuario of usuarios) {
+          console.log(
+            "O " +
+              usuario.nome +
+              "possui as habilidades: " +
+              usuario.habilidades.join([(separador = ", ")])
+          );
+        }
+      }
+
+      var anosEstudo = 7;
+      var skills = ["Javascript", "ReactJS", "React Native"];
+
+      console.log(getAddress(endereco));
+      pares(32, 121);
+      console.log(temHabilidade(skills));
+      console.log(experiencia(anosEstudo));
+      var usuarios = [
+        {
+          nome: "Diego",
+          habilidades: ["Javascript", "ReactJS", "Redux"]
+        },
+        {
+          nome: "Gabriel",
+          habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+        }
+      ];
+      listarHabilidades(usuarios);
+    </script>
+  </body>
+</html>

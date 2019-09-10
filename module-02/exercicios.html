@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício JavaScript</title>
+</head>
+<body>
+    
+    <div class="app">
+        <button class="btnSquare">
+            Clique em mim!
+        </button>
+        <input type="text" name="nome">
+        <button onclick="adicionar()">Adicionar</button>
+        <ul class="namelist"></ul>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        var buttonElement = document.querySelector('.btnSquare');   
+        buttonElement.onclick = function() {
+            var appElement = document.querySelector('.app');
+            var squareElement = document.createElement('div');
+
+            squareElement.className = 'square';
+            squareElement.style.width = '100px';
+            squareElement.style.height = '100px';
+            squareElement.style.backgroundColor = 'red';
+
+            squareElement.onmouseover = function() {
+                var newColor = getRandomColor();
+                squareElement.style.backgroundColor = newColor;
+            }
+            
+            appElement.appendChild(squareElement);
+        }
+
+        var nomes = [
+            'Diego',
+            'Gabriel',
+            'Lucas'
+        ]
+
+        var listElement = document.querySelector('.namelist');
+        
+        for(nome of nomes) {
+            var listItem = document.createElement('li');
+            listItem.textContent = nome;
+            listElement.appendChild(listItem);
+        }
+
+        function adicionar() {
+            var inputElement = document.querySelector('input[name=nome]');
+            var listItem = document.createElement('li');
+
+            listItem.textContent = inputElement.value;
+            listElement.appendChild(listItem);
+
+            inputElement.value = "";
+        }
+
+    </script>
+</body>
+</html>
